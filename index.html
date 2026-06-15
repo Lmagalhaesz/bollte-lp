@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bollté Praia Boutique Pousada — Campeche, Florianópolis | Charme à beira da Praia do Campeche</title>
+<meta name="description" content="Bollté Praia Boutique Pousada: 13 suítes exclusivas no Campeche, sul da Ilha de Florianópolis. Decoração praiana e moderna, piscina, jardim, área gourmet e jantar à la carte — a 200m da praia." />
+<meta property="og:title" content="Bollté Praia Boutique Pousada — Campeche, Florianópolis" />
+<meta property="og:description" content="Charme à beira da Praia do Campeche. 13 suítes boutique, piscina, jardim e jantar à la carte, a 200m da praia, no sul da Ilha." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f7f4ee;            /* marfim quente */
+    --bg-soft: #efeadf;
+    --ink: #20211c;           /* quase-preto */
+    --ink-soft: #61604f;
+    --gold: #c9b67e;          /* dourado boutique (assinatura Evva) */
+    --gold-deep: #a8915a;
+    --sea: #2c5d5a;           /* verde-mar profundo */
+    --sea-deep: #1f4543;
+    --line: rgba(32,33,28,.14);
+    --r: 14px;
+    --maxw: 1180px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.04; letter-spacing: .005em; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  .eyebrow {
+    font-size: .72rem; letter-spacing: .3em; text-transform: uppercase;
+    font-weight: 500; color: var(--gold-deep); display: inline-flex; align-items: center; gap: .8em;
+  }
+  .eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--gold); }
+
+  /* ---------- HEADER (transparente sobre o hero) ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 210;
+    color: #fff;
+    transition: background .45s, color .45s, box-shadow .45s;
+    animation: fade-in 1.2s .25s var(--ease) both;
+  }
+  header .bar { display: flex; align-items: center; justify-content: space-between; height: 94px; transition: height .45s var(--ease); }
+  header.scrolled {
+    background: rgba(247,244,238,.92);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    color: var(--ink); box-shadow: 0 1px 0 var(--line);
+  }
+  header.scrolled .bar { height: 70px; }
+  body.menu-open header { background: transparent; color: #fff; box-shadow: none; backdrop-filter: none; }
+
+  .brand { display: inline-flex; align-items: center; gap: 20px; line-height: 1; }
+  .brand-word { font-weight: 300; font-size: 1.15rem; letter-spacing: .52em; margin-right: -.52em; text-transform: uppercase; }
+  .brand-mark {
+    position: relative; width: 46px; height: 46px; flex: none;
+    border: 1px solid currentColor;
+    border: 1px solid color-mix(in srgb, currentColor 65%, transparent); border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500;
+  }
+  .brand-mark::after { content: "®"; position: absolute; top: -3px; right: -9px; font-family: 'Jost', sans-serif; font-size: .5rem; opacity: .75; }
+  .brand-sub { font-size: .56rem; font-weight: 400; letter-spacing: .35em; text-transform: uppercase; line-height: 1.8; opacity: .85; }
+  @media (max-width: 640px) {
+    .brand { gap: 14px; }
+    .brand-word { font-size: .95rem; letter-spacing: .42em; margin-right: -.42em; }
+    .brand-mark { width: 38px; height: 38px; font-size: 1.3rem; }
+    .brand-sub { display: none; }
+  }
+
+  .menu-btn { background: none; border: 0; color: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 14px; padding: 12px 0 12px 12px; }
+  .menu-btn-label { font-family: 'Jost', sans-serif; font-size: .7rem; font-weight: 500; letter-spacing: .34em; text-transform: uppercase; opacity: .9; }
+  .menu-btn-icon { width: 28px; display: grid; gap: 7px; }
+  .menu-btn-icon i { display: block; height: 1.5px; background: currentColor; transition: transform .4s var(--ease), width .3s var(--ease); }
+  .menu-btn-icon i:nth-child(2) { width: 65%; justify-self: end; }
+  .menu-btn:hover .menu-btn-icon i:nth-child(2) { width: 100%; }
+  body.menu-open .menu-btn-icon i:nth-child(1) { transform: translateY(4.25px) rotate(45deg); }
+  body.menu-open .menu-btn-icon i:nth-child(2) { width: 100%; transform: translateY(-4.25px) rotate(-45deg); }
+  @media (max-width: 640px) { .menu-btn-label { display: none; } }
+
+  /* menu de tela cheia */
+  .menu {
+    position: fixed; inset: 0; z-index: 205; background: var(--sea-deep); color: #f4efe6;
+    visibility: hidden; opacity: 0;
+    transition: opacity .55s var(--ease), visibility 0s linear .55s;
+    overflow-y: auto; display: flex;
+  }
+  .menu::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(60% 50% at 82% 8%, rgba(201,182,126,.16), transparent 70%); }
+  body.menu-open .menu { visibility: visible; opacity: 1; transition: opacity .55s var(--ease); }
+  .menu-grid { display: grid; grid-template-columns: 1.3fr .9fr; gap: clamp(40px, 6vw, 90px); align-items: end; width: 100%; margin-block: auto; padding-top: 120px; padding-bottom: 64px; }
+  .menu-links a {
+    display: flex; align-items: baseline; gap: 20px; padding: .42em 0;
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.05; color: #fff;
+    border-bottom: 1px solid rgba(244,239,230,.16);
+    opacity: 0; transform: translateY(26px);
+    transition: opacity .6s var(--ease) var(--d, 0s), transform .6s var(--ease) var(--d, 0s), color .3s, padding-left .35s var(--ease);
+  }
+  .menu-links a i { font-family: 'Jost', sans-serif; font-style: normal; font-size: .68rem; letter-spacing: .26em; color: var(--gold); }
+  .menu-links a:hover { color: var(--gold); padding-left: 12px; }
+  .menu-links a:nth-child(2) { --d: .06s; } .menu-links a:nth-child(3) { --d: .12s; }
+  .menu-links a:nth-child(4) { --d: .18s; } .menu-links a:nth-child(5) { --d: .24s; }
+  body.menu-open .menu-links a { opacity: 1; transform: none; }
+  .menu-info { display: grid; gap: 1.4rem; padding-bottom: .5rem;
+    opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease) .3s, transform .7s var(--ease) .3s; }
+  body.menu-open .menu-info { opacity: 1; transform: none; }
+  .menu-info span { display: block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .25rem; }
+  .menu-info p { font-size: .98rem; font-weight: 300; color: rgba(244,239,230,.85); }
+  @media (max-width: 880px) { .menu-grid { grid-template-columns: 1fr; align-items: start; gap: 44px; padding-top: 110px; } }
+  .logo { display: flex; flex-direction: column; line-height: 1; }
+  .logo b { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.7rem; letter-spacing: .04em; }
+  .logo span { font-size: .6rem; letter-spacing: .42em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin-top: .35em; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .6em;
+    background: linear-gradient(140deg, #8a7243, #75603a); color: #fff; padding: .95em 1.7em; border-radius: 2px;
+    font-weight: 500; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+    transition: transform .3s var(--ease), filter .3s, box-shadow .3s;
+    box-shadow: 0 14px 28px -14px rgba(117,96,58,.7);
+  }
+  .btn:hover { filter: brightness(1.07); transform: translateY(-2px); box-shadow: 0 18px 34px -14px rgba(117,96,58,.75); }
+  .btn.ghost { background: transparent; color: #fff; box-shadow: none; border: 1px solid rgba(255,255,255,.55); }
+  .btn.ghost:hover { background: #fff; color: var(--ink); border-color: #fff; filter: none; }
+  .btn.dark-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+  .btn.dark-ghost:hover { background: var(--ink); color: #fff; border-color: var(--ink); filter: none; }
+
+  /* tipografia display das seções (estilo boutique) */
+  .t-display {
+    font-family: 'Jost', sans-serif; font-weight: 300; text-transform: uppercase;
+    letter-spacing: .07em; line-height: 1.14; font-size: clamp(2rem, 4vw, 3.3rem); color: var(--ink);
+  }
+
+  /* ---------- HERO ---------- */
+  @keyframes fade-in { from { opacity: 0; } }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(30px); } }
+  @keyframes kenburns { from { transform: scale(1.13); } to { transform: scale(1.04); } }
+  .hero {
+    position: relative; height: 100vh; height: 100svh; min-height: 600px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    color: #fff; background: var(--sea-deep); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: -16% 0; z-index: 0; will-change: transform; transform: translate3d(0,0,0); }
+  .hero-zoom { position: absolute; inset: 0; background-size: cover; background-position: center 38%; animation: kenburns 7s var(--ease) both; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,24,23,.56) 0%, rgba(15,24,23,.16) 30%, rgba(15,24,23,.08) 50%, rgba(15,24,23,.38) 72%, rgba(15,24,23,.62) 100%); }
+
+  .cue {
+    position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 2;
+    width: 72px; height: 72px; border-radius: 50%; cursor: pointer;
+    border: 1px solid rgba(255,255,255,.7); background: rgba(15,24,23,.24);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: #fff; display: grid; place-items: center;
+    transition: background .35s, border-color .35s;
+    animation: fade-in 1.2s 1.5s var(--ease) both;
+  }
+  .cue:hover { background: rgba(255,255,255,.18); border-color: #fff; }
+  .cue::before { content: ""; position: absolute; inset: -1px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.55); animation: cue-pulse 2.8s var(--ease) infinite; }
+  .cue svg { width: 20px; height: 20px; animation: cue-bob 2.1s var(--ease) infinite; }
+  @keyframes cue-bob { 0%, 100% { transform: translateY(-3px); opacity: .65; } 50% { transform: translateY(3px); opacity: 1; } }
+  @keyframes cue-pulse { 0% { transform: scale(1); opacity: .8; } 70%, 100% { transform: scale(1.5); opacity: 0; } }
+  @media (max-width: 640px), (max-height: 700px) { .cue { width: 56px; height: 56px; top: 41%; } .cue svg { width: 16px; height: 16px; } }
+  @media (max-height: 560px) { .cue { display: none; } }
+
+  .hero-foot { position: relative; z-index: 2; padding-bottom: clamp(18px, 4.5vh, 48px); }
+  .hero-heading { text-align: center; margin-bottom: clamp(20px, 4vh, 38px); animation: rise-in 1.1s .5s var(--ease) both; }
+  .hero-heading .eyebrow { color: #fff; justify-content: center; text-shadow: 0 1px 14px rgba(15,24,23,.6); }
+  .hero-heading .eyebrow::after { content: ""; width: 32px; height: 1px; background: var(--gold); }
+  .hero-heading h1 { font-size: clamp(2.2rem, 4.6vw, 4rem); margin-top: .55rem;
+    text-shadow: 0 2px 14px rgba(15,24,23,.5), 0 10px 44px rgba(15,24,23,.55); }
+  .hero-heading h1 em { font-style: italic; color: #e2d2a2; }
+  .hero-cta { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* barra de reserva */
+  .booking {
+    display: grid; grid-template-columns: 1.05fr 1.05fr .8fr .85fr auto; align-items: stretch;
+    background: #fff; color: var(--ink); border-radius: 3px;
+    box-shadow: 0 46px 90px -32px rgba(15,24,23,.6);
+    animation: rise-in 1.1s .75s var(--ease) both;
+  }
+  .bk-field { position: relative; padding: 19px 26px 17px; cursor: pointer; min-width: 0; }
+  .bk-field + .bk-field { border-left: 1px solid var(--line); }
+  .bk-field label { display: block; font-size: .98rem; font-weight: 500; letter-spacing: .01em; margin-bottom: 5px; cursor: pointer; }
+  .bk-field::after { content: ""; position: absolute; left: 26px; right: 26px; bottom: 0; height: 2px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+  .bk-field:focus-within::after, .bk-field:hover::after { transform: scaleX(1); }
+  .bk-field:focus-within::after { background: var(--sea); }
+  .bk-control { display: flex; align-items: center; gap: 10px; color: var(--ink-soft); }
+  .bk-control input, .bk-control select {
+    appearance: none; -webkit-appearance: none; border: 0; background: transparent; outline: none;
+    font-family: 'Jost', sans-serif; font-size: .92rem; letter-spacing: .05em; color: inherit;
+    width: 100%; min-width: 0; padding: 0; cursor: pointer;
+  }
+  .bk-control input[type="date"] { min-height: 1.45em; }
+  .bk-control input[type="date"]::-webkit-calendar-picker-indicator { position: absolute; inset: 0; width: auto; height: auto; opacity: 0; cursor: pointer; }
+  .bk-control input:focus-visible, .bk-control select:focus-visible { outline: 2px solid var(--sea); outline-offset: 4px; }
+  .bk-control .chev { width: 11px; height: 11px; flex: none; color: var(--gold-deep); transition: transform .3s var(--ease); }
+  .bk-field:hover .chev { transform: translateY(2px); }
+  .bk-field.error label { color: #b3402e; }
+  .bk-field.error::after { background: #b3402e; transform: scaleX(1); }
+  .bk-btn {
+    border: 0; cursor: pointer; border-radius: 0 3px 3px 0; min-width: 0;
+    background: linear-gradient(140deg, #8a7243 0%, #75603a 100%); color: #fff;
+    font-family: 'Jost', sans-serif; font-size: .78rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+    padding: 0 30px; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    white-space: nowrap; transition: filter .3s;
+  }
+  .bk-btn svg { width: 17px; height: 17px; flex: none; transition: transform .35s var(--ease); }
+  .bk-btn:hover { filter: brightness(1.07); }
+  .bk-btn:hover svg { transform: translateX(5px); }
+  @media (max-width: 980px) {
+    .booking { grid-template-columns: 1fr 1fr; }
+    .bk-field { padding: 15px 20px 13px; }
+    .bk-field + .bk-field { border-left: 0; }
+    .bk-field:nth-child(even) { border-left: 1px solid var(--line); }
+    .bk-field:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .bk-field::after { left: 20px; right: 20px; }
+    .bk-btn { grid-column: 1 / -1; border-radius: 0 0 3px 3px; padding: 17px; }
+    .hero-heading h1 { font-size: clamp(1.9rem, 7.5vw, 2.6rem); }
+  }
+  @media (max-width: 640px) {
+    .hero-heading .eyebrow { font-size: .62rem; letter-spacing: .22em; }
+    .hero-heading .eyebrow::before, .hero-heading .eyebrow::after { width: 16px; }
+  }
+  @media (max-width: 400px) {
+    .wrap { padding: 0 20px; }
+    .bk-field { padding: 13px 14px 11px; }
+    .bk-field::after { left: 14px; right: 14px; }
+    .bk-field label { font-size: .9rem; }
+    .bk-control input, .bk-control select { font-size: .85rem; letter-spacing: 0; }
+  }
+  .bk-msg {
+    margin: 12px auto 0; width: fit-content; background: #9c3422; color: #fff;
+    font-size: .85rem; letter-spacing: .04em; padding: .5em 1.1em; border-radius: 2px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: clamp(68px,9vw,128px) 0; }
+  .sec-head { max-width: 60ch; }
+  .sec-head.center { margin: 0 auto; text-align: center; }
+  .sec-head.center .eyebrow { justify-content: center; }
+  .sec-head h2 { font-size: clamp(2.3rem,5.2vw,3.8rem); margin-top: 1rem; }
+  .sec-head .t-display { font-size: clamp(2rem, 4vw, 3.3rem); }
+  .sec-head p { margin-top: 1.2rem; color: var(--ink-soft); font-size: 1.1rem; font-weight: 300; }
+
+  /* a pousada — split com foto sangrando a borda esquerda */
+  .split { position: relative; display: grid; grid-template-columns: minmax(300px, 46vw) 1fr;
+    gap: clamp(36px, 6vw, 96px); align-items: center; padding: clamp(72px, 9vw, 130px) 0; overflow: hidden; }
+  .split-media { position: relative; height: clamp(420px, 74vh, 660px); border-radius: 0 4px 4px 0; overflow: hidden;
+    background: var(--sea); box-shadow: 0 40px 80px -44px rgba(32,33,28,.5); }
+  .split-media .badge { position: absolute; left: 22px; bottom: 22px; z-index: 2; background: rgba(247,244,238,.94);
+    color: var(--ink); border-radius: 3px; padding: .85rem 1.1rem; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .split-media .badge b { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--gold-deep); display: flex; align-items: center; gap: .35rem; }
+  .split-media .badge small { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .split-body { max-width: 560px; padding-right: clamp(28px, 5vw, 60px); }
+  .split-body h2 { margin-top: 1.1rem; }
+  .split-body p { margin-top: 1.2rem; color: var(--ink-soft); font-weight: 300; }
+  .split-body .btn { margin-top: 2.2rem; }
+  .deco-circle { position: absolute; top: clamp(48px, 8vw, 96px); left: 43%; width: 64px; height: 64px;
+    border: 1px solid var(--gold); border-radius: 50%; opacity: .55; pointer-events: none; }
+  @media (max-width: 880px) {
+    .split { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
+    .split-media { height: 64vw; min-height: 300px; border-radius: 0; }
+    .split-body { padding: 0 28px; max-width: 640px; }
+    .deco-circle { display: none; }
+  }
+
+  /* acomodações — cartões full-bleed estilo boutique */
+  .rooms2 { padding: clamp(56px, 7vw, 96px) 0 0; }
+  .rooms2-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+    margin-bottom: clamp(32px, 5vw, 52px); }
+  .rooms2-head h2 { margin-top: 1rem; }
+  .rooms2-note { max-width: 36ch; color: var(--ink-soft); font-weight: 300; padding-bottom: .4rem; }
+  @media (max-width: 760px) { .rooms2-head { flex-direction: column; align-items: flex-start; gap: 12px; } }
+  .rooms2-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  .room2 { position: relative; height: clamp(420px, 62vh, 580px); overflow: hidden; color: #fff; }
+  .room2::after { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(200deg, rgba(15,24,23,0) 42%, rgba(15,24,23,.66) 100%); }
+  .room2-info { position: absolute; left: clamp(20px, 3vw, 38px); right: 20px; bottom: clamp(22px, 3.4vw, 38px); z-index: 2; }
+  .room2-info small { display: block; font-size: .68rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+  .room2-info h3 { font-family: 'Jost', sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: .1em;
+    font-size: clamp(1.5rem, 2vw, 1.9rem); line-height: 1.1; }
+  .room2-info p { margin-top: .45rem; font-size: .86rem; font-weight: 300; color: rgba(255,255,255,.85); max-width: 36ch; }
+  .btn-line { display: inline-flex; align-items: center; gap: .7em; margin-top: 1.2rem; padding: .8em 1.35em;
+    border: 1px solid rgba(255,255,255,.65); color: #fff; font-size: .72rem; font-weight: 500;
+    letter-spacing: .2em; text-transform: uppercase; border-radius: 2px;
+    transition: background .35s, color .35s, border-color .35s; }
+  .btn-line svg { width: 15px; height: 15px; flex: none; transition: transform .3s var(--ease); }
+  .room2:hover .btn-line, .btn-line:hover, .btn-line:focus-visible { background: #fff; color: var(--ink); border-color: #fff; }
+  .room2:hover .btn-line svg, .btn-line:hover svg { transform: translateX(4px); }
+  @media (max-width: 880px) {
+    .rooms2-grid { grid-template-columns: 1fr; gap: 4px; }
+    .room2 { height: clamp(300px, 60vw, 430px); }
+  }
+
+  /* estrutura */
+  .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--line);
+    border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: 3.4rem; }
+  @media(max-width:760px){ .feat-grid { grid-template-columns: repeat(2,1fr);} }
+  @media(max-width:460px){ .feat-grid { grid-template-columns: 1fr;} }
+  .feat { background: var(--bg); padding: 34px 28px; transition: background .3s; }
+  .feat:hover { background: var(--bg-soft); }
+  .feat .ic { width: 40px; height: 40px; color: var(--sea); margin-bottom: 1rem; }
+  .feat h4 { font-size: 1.45rem; margin-bottom: .3rem; }
+  .feat p { color: var(--ink-soft); font-size: .92rem; font-weight: 300; }
+
+  /* experiências — carrossel */
+  .exp2 { background: var(--bg-soft); }
+  .exp2-grid { display: grid; grid-template-columns: minmax(280px, .85fr) 1.5fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
+  @media (max-width: 880px) { .exp2-grid { grid-template-columns: 1fr; } }
+  .exp2-intro h2 { margin-top: 1rem; font-size: clamp(1.8rem, 2.6vw, 2.5rem); }
+  .exp2-intro p { margin-top: 1.2rem; color: var(--ink-soft); font-weight: 300; }
+  .exp2-ctrls { display: flex; gap: 12px; margin-top: 2.2rem; }
+  .exp2-ctrls button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: transparent;
+    color: var(--ink); cursor: pointer; display: grid; place-items: center;
+    transition: background .3s, color .3s, border-color .3s; }
+  .exp2-ctrls button:hover { background: var(--sea); border-color: var(--sea); color: #fff; }
+  .exp2-ctrls svg { width: 18px; height: 18px; }
+  .exp2-track { display: grid; grid-auto-flow: column; grid-auto-columns: min(74%, 320px); gap: clamp(18px, 2.5vw, 28px);
+    overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+  .exp2-track::-webkit-scrollbar { display: none; }
+  .exp2-card { scroll-snap-align: start; }
+  .exp2-card .ph { aspect-ratio: 3/3.6; overflow: hidden; border-radius: 3px; background: var(--sea); }
+  .exp2-card h3 { font-family: 'Jost', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .12em;
+    font-size: 1.02rem; margin-top: 1.1rem; color: var(--ink); }
+  .exp2-card p { margin-top: .45rem; font-size: .9rem; font-weight: 300; color: var(--ink-soft); }
+
+  /* finale — reservas cinematográfico (foto full-bleed + stats + CTA) */
+  .finale { position: relative; padding: 0; color: #f4efe6; background: var(--sea-deep); overflow: hidden; }
+  .finale .finale-bg { position: absolute; inset: 0; }
+  .finale-bg::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,24,23,.88) 0%, rgba(15,24,23,.6) 38%, rgba(15,24,23,.52) 62%, rgba(15,24,23,.84) 100%); }
+  .finale-inner { position: relative; z-index: 2; padding: clamp(56px, 7vw, 88px) 0 clamp(56px, 7vw, 80px); }
+  .finale-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;
+    padding: clamp(26px, 3.6vw, 40px) 0;
+    border-top: 1px solid rgba(244,239,230,.22); border-bottom: 1px solid rgba(244,239,230,.22); }
+  .fstat b { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1;
+    font-size: clamp(2.3rem, 3.6vw, 3.4rem); color: var(--gold); }
+  .fstat small { display: block; margin-top: .55rem; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(244,239,230,.78); }
+  @media (max-width: 720px) { .finale-stats { grid-template-columns: repeat(2, 1fr); row-gap: 30px; } }
+  .finale-cta { text-align: center; padding-top: clamp(56px, 8vw, 96px); }
+  .finale-cta .eyebrow { color: var(--gold); justify-content: center; }
+  .finale-cta .eyebrow::after { content: ""; width: 32px; height: 1px; background: var(--gold); }
+  .finale-cta h2 { font-size: clamp(2.6rem, 6vw, 4.6rem); color: #fff; margin-top: 1.1rem;
+    text-shadow: 0 2px 30px rgba(15,24,23,.5); }
+  .finale-cta h2 em { font-style: italic; color: var(--gold); }
+  .finale-cta .lead { margin: 1.2rem auto 0; max-width: 46ch; color: rgba(244,239,230,.88); font-weight: 300; }
+  .cta-actions { margin-top: 2.4rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .finale-info { margin-top: clamp(48px, 6vw, 76px); padding-top: clamp(26px, 3.6vw, 38px);
+    border-top: 1px solid rgba(244,239,230,.22);
+    display: flex; justify-content: center; gap: clamp(2rem, 6vw, 4.5rem); flex-wrap: wrap; }
+  .finale-info div { text-align: left; }
+  .finale-info span { display: block; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: .3rem; }
+  .finale-info p { font-size: .98rem; font-weight: 300; color: rgba(244,239,230,.88); }
+  .finale-info a:hover { color: var(--gold); }
+
+  footer { border-top: 1px solid var(--line); padding: 44px 0; color: var(--ink-soft); font-size: .86rem; }
+  footer .wrap { display:flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items:center; }
+  footer .logo b { font-size: 1.3rem; }
+
+  /* whatsapp flutuante */
+  .wa { position: fixed; right: 22px; bottom: 22px; z-index: 200; display: inline-flex; align-items:center; gap:.6em;
+    background: #1faf5e; color:#fff; padding: .9em 1.35em; border-radius: 100px; font-weight: 500; font-size:.9rem; letter-spacing:.04em;
+    box-shadow: 0 14px 30px -10px rgba(31,175,94,.7); transition: transform .3s var(--ease); }
+  .wa:hover { transform: translateY(-3px) scale(1.02); }
+
+  /* cursor circular decorativo (segue o mouse com suavização) */
+  .cursor { position: fixed; left: 0; top: 0; z-index: 500; pointer-events: none; opacity: 0; transition: opacity .35s; }
+  .cursor i { display: block; width: 38px; height: 38px; margin: -19px 0 0 -19px;
+    border: 1px solid var(--gold-deep); border-radius: 50%;
+    transition: width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), background .3s, border-color .3s; }
+  .cursor.on-link i { width: 60px; height: 60px; margin: -30px 0 0 -30px; border-color: var(--gold); background: rgba(201,182,126,.14); }
+  @media (hover: none) { .cursor { display: none; } }
+
+  /* ---------- PARALLAX 3D (drift + inclinação dentro do quadro) ---------- */
+  .pframe { overflow: hidden; position: relative; perspective: 900px; }
+  .pframe > .pimg {
+    position: absolute; left: 0; top: -22%; width: 100%; height: 144%;
+    object-fit: cover; will-change: transform;
+    transform: translate3d(0,0,0) scale(1.06);
+  }
+  /* o .ph dos quartos vira moldura de parallax */
+  .room .ph { position: relative; overflow: hidden; }
+
+  /* ---------- REVEAL (blur + escala + subida, com stagger) ---------- */
+  .reveal { opacity: 0; transform: translateY(38px) scale(.97); filter: blur(8px);
+    transition: opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; filter: blur(0); }
+  /* máscara que "abre" a imagem ao entrar */
+  .reveal-mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.1s var(--ease); }
+  .reveal-mask.in { clip-path: inset(0 0 0 0); }
+  [data-d="1"]{ transition-delay:.08s } [data-d="2"]{ transition-delay:.16s } [data-d="3"]{ transition-delay:.24s }
+  [data-d="4"]{ transition-delay:.32s } [data-d="5"]{ transition-delay:.4s } [data-d="6"]{ transition-delay:.48s }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal, .reveal-mask { transition: none !important; opacity: 1 !important; transform: none !important;
+      filter: none !important; clip-path: none !important; }
+    .pframe > .pimg { position: absolute; height: 100%; top: 0; transform: none !important; }
+    .hero-bg { transform: none !important; }
+    header, .hero-zoom, .hero-heading, .booking, .cue, .cue::before, .cue svg { animation: none !important; }
+    .menu, .menu-links a, .menu-info { transition: none !important; }
+  }
+</style>
+<noscript><style>
+  .reveal, .reveal-mask { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
+</style></noscript>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a class="brand" href="#" aria-label="Bollté Praia Boutique Pousada — voltar ao topo">
+      <span class="brand-word">Bollté</span>
+      <span class="brand-mark" aria-hidden="true">B</span>
+      <span class="brand-sub">Praia Boutique<br />Campeche</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span class="menu-btn-label" aria-hidden="true">Menu</span>
+      <span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Navegação principal">
+  <div class="wrap menu-grid">
+    <div class="menu-links">
+      <a href="#pousada"><i>01</i>A Pousada</a>
+      <a href="#acomodacoes"><i>02</i>Acomodações</a>
+      <a href="#estrutura"><i>03</i>Estrutura</a>
+      <a href="#arredores"><i>04</i>Arredores</a>
+      <a href="#contato"><i>05</i>Reservas</a>
+    </div>
+    <div class="menu-info">
+      <div><span>Endereço</span><p>Rua Zeferino João Bregue, 320 (servidão)<br />Campeche — Florianópolis/SC</p></div>
+      <div><span>Reservas</span><p>WhatsApp (48) 98432-7094<br />Recepção (48) 3259-6205</p></div>
+      <div><span>Instagram</span><p>@bolltepousada</p></div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" data-hero>
+    <div class="hero-zoom" style="background-image:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1900&q=80&auto=format&fit=crop')"></div>
+  </div>
+  <button class="cue" type="button" data-cue aria-label="Rolar para conhecer a pousada">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
+  </button>
+  <div class="hero-foot">
+    <div class="wrap">
+      <div data-hero-content>
+        <div class="hero-heading">
+          <span class="eyebrow">Campeche · Florianópolis</span>
+          <h1>Seu refúgio boutique à beira da <em>Praia do Campeche.</em></h1>
+        </div>
+      </div>
+      <form class="booking" id="booking" novalidate>
+        <div class="bk-field">
+          <label for="bk-in">Chegada</label>
+          <div class="bk-control">
+            <input type="date" id="bk-in" name="chegada" required />
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="bk-field">
+          <label for="bk-out">Partida</label>
+          <div class="bk-control">
+            <input type="date" id="bk-out" name="partida" required />
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="bk-field">
+          <label for="bk-ad">Adultos</label>
+          <div class="bk-control">
+            <select id="bk-ad" name="adultos">
+              <option value="1">1 adulto</option>
+              <option value="2" selected>2 adultos</option>
+              <option value="3">3 adultos</option>
+              <option value="4">4 adultos</option>
+              <option value="5">5 adultos</option>
+              <option value="6">6 adultos</option>
+            </select>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="bk-field">
+          <label for="bk-ch">Crianças</label>
+          <div class="bk-control">
+            <select id="bk-ch" name="criancas">
+              <option value="0" selected>0 criança</option>
+              <option value="1">1 criança</option>
+              <option value="2">2 crianças</option>
+              <option value="3">3 crianças</option>
+              <option value="4">4 crianças</option>
+            </select>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <button class="bk-btn" type="submit">
+          <span>Checar disponibilidade</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m0 0-6-6m6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="bk-msg" id="bk-msg" role="alert" hidden></p>
+    </div>
+  </div>
+</section>
+
+<section id="pousada" class="split">
+  <div class="split-media pframe reveal" >
+    <img class="pimg" data-px="0.20" data-tilt="3" src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1400&q=80&auto=format&fit=crop" alt="Piscina do Bollté Praia Boutique Pousada" loading="lazy" />
+    <div class="badge"><b>13</b><small>Suítes exclusivas</small></div>
+  </div>
+  <div class="split-body">
+    <span class="eyebrow reveal">A Pousada</span>
+    <h2 class="t-display reveal" data-d="1">Boutique, à beira<br>da praia</h2>
+    <p class="reveal" data-d="2">No coração do Campeche, sul da Ilha de Florianópolis, o Bollté é uma pousada boutique de 13 suítes exclusivas — decoração praiana e moderna, piscina, jardim e área gourmet, a 200 metros da praia.</p>
+    <p class="reveal" data-d="3">Um clima intimista para casais e famílias, com café da manhã em buffet e jantar à la carte no local. Charme, conforto e o melhor do litoral catarinense, do jeito que a sua viagem merece.</p>
+    <a class="btn reveal" data-d="4" href="#acomodacoes">Descubra mais</a>
+  </div>
+  <i class="deco-circle" aria-hidden="true"></i>
+</section>
+
+<section class="rooms2" id="acomodacoes">
+  <div class="wrap rooms2-head">
+    <div class="reveal">
+      <span class="eyebrow">Acomodações</span>
+      <h2 class="t-display">Suítes com<br>nome de praia</h2>
+    </div>
+    <p class="rooms2-note reveal" data-d="2">Roupa de cama premium em algodão egípcio e hipoalergênica, ar-condicionado, TV LCD e frigobar. Cada suíte leva o nome de uma praia do sul da Ilha.</p>
+  </div>
+  <div class="rooms2-grid">
+    <article class="room2 pframe reveal" data-d="1">
+      <img class="pimg" data-px="0.20" data-tilt="4" loading="lazy" alt="Suíte Praia do Saquinho" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80&auto=format&fit=crop" />
+      <div class="room2-info">
+        <small>Suíte</small>
+        <h3>Praia do Saquinho</h3>
+        <p>Algodão egípcio, roupa de cama premium hipoalergênica, ar-condicionado, TV LCD e frigobar.</p>
+        <a class="btn-line" href="https://wa.me/5548984327094?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Su%C3%ADte%20Praia%20do%20Saquinho%20no%20Bollt%C3%A9." target="_blank" rel="noopener">Reservar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m0 0-6-6m6 6-6 6"/></svg></a>
+      </div>
+    </article>
+    <article class="room2 pframe reveal" data-d="2">
+      <img class="pimg" data-px="0.20" data-tilt="4" loading="lazy" alt="Suíte Lagoinha do Leste" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1000&q=80&auto=format&fit=crop" />
+      <div class="room2-info">
+        <small>Suíte</small>
+        <h3>Lagoinha do Leste</h3>
+        <p>Ambiente claro e arejado, com algodão egípcio, cama premium hipoalergênica, ar-condicionado, TV LCD e frigobar.</p>
+        <a class="btn-line" href="https://wa.me/5548984327094?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Su%C3%ADte%20Lagoinha%20do%20Leste%20no%20Bollt%C3%A9." target="_blank" rel="noopener">Reservar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m0 0-6-6m6 6-6 6"/></svg></a>
+      </div>
+    </article>
+    <article class="room2 pframe reveal" data-d="3">
+      <img class="pimg" data-px="0.20" data-tilt="4" loading="lazy" alt="Suíte Morro das Pedras" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1000&q=80&auto=format&fit=crop" />
+      <div class="room2-info">
+        <small>Suíte</small>
+        <h3>Morro das Pedras</h3>
+        <p>Tons quentes e aconchego, com algodão egípcio, cama premium hipoalergênica, ar-condicionado, TV LCD e frigobar.</p>
+        <a class="btn-line" href="https://wa.me/5548984327094?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Su%C3%ADte%20Morro%20das%20Pedras%20no%20Bollt%C3%A9." target="_blank" rel="noopener">Reservar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m0 0-6-6m6 6-6 6"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="estrutura">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Estrutura</span>
+      <h2 class="t-display" style="margin-top:1rem">Tudo para você<br>só relaxar</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal" data-d="1">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c2 0 2-1.5 4-1.5S10 16 12 16s2-1.5 4-1.5 2 1.5 4 1.5M2 20c2 0 2-1.5 4-1.5S10 20 12 20s2-1.5 4-1.5 2 1.5 4 1.5M7 11l5-7 5 7"/></svg>
+        <h4>Piscina</h4>
+        <p>Área de piscina ao ar livre para aproveitar os dias de sol da Ilha.</p>
+      </div>
+      <div class="feat reveal" data-d="2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V10m14 11V10M4 10h16M6 10V7a6 6 0 0 1 12 0v3M9 5.5c0-1 .5-1.5 1.5-1.5"/></svg>
+        <h4>Café da manhã buffet</h4>
+        <p>Buffet variado e caprichado para começar bem cada manhã.</p>
+      </div>
+      <div class="feat reveal" data-d="3">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v7m0 0v11M5 10c-1.1 0-2-.9-2-2V3M5 10c1.1 0 2-.9 2-2V3M16 3c-1.5 1-2 3-2 6 0 1.4 1 2 2 2v10"/></svg>
+        <h4>Restaurante &amp; jantar à la carte</h4>
+        <p>Jantar à la carte no próprio local, sem precisar sair da pousada.</p>
+      </div>
+      <div class="feat reveal" data-d="1">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9.5 16l-2 5M14.5 16l2 5M10 9h.01M13.5 9.5h.01M11.5 11.5h.01"/></svg>
+        <h4>Área gourmet com churrasqueira</h4>
+        <p>Espaço gourmet com churrasqueira para reunir quem você ama.</p>
+      </div>
+      <div class="feat reveal" data-d="2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9M12 13C7 13 4 10 4 5c5 0 8 3 8 8M12 11c4 0 7-3 7-7-4 0-7 3-7 7"/></svg>
+        <h4>Jardim para relaxar</h4>
+        <p>Um jardim tranquilo para desacelerar entre um mergulho e outro.</p>
+      </div>
+      <div class="feat reveal" data-d="3">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 6a3 3 0 0 1-6 0zM12 15v5M9 21h6"/></svg>
+        <h4>Jantar privativo &amp; espumante</h4>
+        <p>Jantar privativo e taça de espumante no quarto — o toque romântico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="exp2" id="arredores">
+  <div class="wrap exp2-grid">
+    <div class="exp2-intro">
+      <span class="eyebrow reveal">Arredores</span>
+      <h2 class="t-display reveal" data-d="1">O melhor do<br>sul da Ilha</h2>
+      <p class="reveal" data-d="2">Do Bollté você está a 200 metros da Praia do Campeche e a poucos minutos das praias selvagens, trilhas e da Lagoa — o sul da Ilha de Florianópolis no seu melhor.</p>
+      <div class="exp2-ctrls reveal" data-d="3">
+        <button type="button" data-prev aria-label="Experiência anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 12H4m0 0 6-6m-6 6 6 6"/></svg>
+        </button>
+        <button type="button" data-next aria-label="Próxima experiência">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m0 0-6-6m6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="exp2-track reveal" data-d="2" data-carousel tabindex="0" aria-label="Experiências nos arredores">
+      <article class="exp2-card">
+        <div class="ph pframe"><img class="pimg" data-px="0.16" data-tilt="5" loading="lazy" alt="Praia do Campeche" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80&auto=format&fit=crop" /></div>
+        <h3>Praia do Campeche</h3>
+        <p>Areia larga e mar aberto a apenas 200 metros da pousada, a pé.</p>
+      </article>
+      <article class="exp2-card">
+        <div class="ph pframe"><img class="pimg" data-px="0.16" data-tilt="5" loading="lazy" alt="Ilha do Campeche" src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&q=80&auto=format&fit=crop" /></div>
+        <h3>Ilha do Campeche</h3>
+        <p>Passeio de barco a 1,5 km — águas cristalinas e patrimônio natural.</p>
+      </article>
+      <article class="exp2-card">
+        <div class="ph pframe"><img class="pimg" data-px="0.16" data-tilt="5" loading="lazy" alt="Morro das Pedras e Lagoinha do Leste" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?w=800&q=80&auto=format&fit=crop" /></div>
+        <h3>Morro das Pedras &amp; Lagoinha</h3>
+        <p>Trilhas e praias selvagens do sul da Ilha, para os amantes da natureza.</p>
+      </article>
+      <article class="exp2-card">
+        <div class="ph pframe"><img class="pimg" data-px="0.16" data-tilt="5" loading="lazy" alt="Lagoa da Conceição" src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&q=80&auto=format&fit=crop" /></div>
+        <h3>Lagoa da Conceição</h3>
+        <p>Gastronomia, vida noturna e esportes aquáticos a poucos minutos de carro.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="finale" id="contato">
+  <div class="finale-bg pframe" aria-hidden="true">
+    <img class="pimg" data-px="0.12" data-tilt="0" loading="lazy" alt="" src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1900&q=80&auto=format&fit=crop" />
+  </div>
+  <div class="wrap finale-inner">
+    <div class="finale-stats">
+      <div class="fstat reveal" data-d="1"><b><span data-count="13">0</span></b><small>Suítes exclusivas</small></div>
+      <div class="fstat reveal" data-d="2"><b><span data-count="200">0</span>m</b><small>Da praia</small></div>
+      <div class="fstat reveal" data-d="3"><b>Campeche</b><small>Sul da Ilha · SC</small></div>
+      <div class="fstat reveal" data-d="4"><b>Direta</b><small>Reserva sem intermediários</small></div>
+    </div>
+    <div class="finale-cta">
+      <span class="eyebrow reveal">Reservas</span>
+      <h2 class="reveal" data-d="1">Reserve sua experiência<br /><em>boutique no Campeche.</em></h2>
+      <p class="lead reveal" data-d="2">Fale com a gente pelo WhatsApp e reserve direto com a pousada — sem intermediários, com toda a atenção que a sua viagem merece.</p>
+      <div class="cta-actions reveal" data-d="3">
+        <a class="btn" href="https://wa.me/5548984327094" target="_blank" rel="noopener">WhatsApp (48) 98432-7094</a>
+        <a class="btn ghost" href="https://www.instagram.com/bolltepousada" target="_blank" rel="noopener">Ver no Instagram</a>
+      </div>
+    </div>
+    <div class="finale-info reveal" data-d="4">
+      <div><span>Endereço</span><p>Rua Zeferino João Bregue, 320 (servidão)<br />Campeche — Florianópolis/SC</p></div>
+      <div><span>Reservas</span><p><a href="https://wa.me/5548984327094" target="_blank" rel="noopener">WhatsApp (48) 98432-7094</a><br />Recepção (48) 3259-6205</p></div>
+      <div><span>Instagram</span><p><a href="https://www.instagram.com/bolltepousada" target="_blank" rel="noopener">@bolltepousada</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><b>Bollté</b><span>Praia Boutique · Campeche</span></div>
+    <div>© 2026 Bollté Praia Boutique Pousada · Campeche, Florianópolis/SC</div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5548984327094" target="_blank" rel="noopener">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  Reservar
+</a>
+
+<div class="cursor" aria-hidden="true"><i></i></div>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  // reveals primeiro: se algo abaixo falhar, o conteúdo ainda aparece
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .14 });
+  document.querySelectorAll('.reveal, .reveal-mask').forEach(el => io.observe(el));
+
+  // nav: estado ao rolar
+  const hd = document.getElementById('hd');
+
+  // ---------- MENU DE TELA CHEIA ----------
+  const menuBtn = document.getElementById('menuBtn');
+  const menuOpen = () => document.body.classList.contains('menu-open');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    // fundo inerte enquanto o overlay cobre a tela: foco não vaza para trás
+    document.querySelectorAll('body > :not(header):not(.menu):not(script)').forEach(el => {
+      if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+    if (open) document.querySelector('.menu-links a')?.focus();
+    else if (document.activeElement && document.activeElement.closest('.menu')) menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', () => setMenu(!menuOpen()));
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.querySelector('.brand').addEventListener('click', () => { if (menuOpen()) setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen()) { setMenu(false); menuBtn.focus(); } });
+
+  // cue: rola para a primeira seção
+  document.querySelector('[data-cue]')?.addEventListener('click', () => {
+    document.getElementById('pousada')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  // ---------- BARRA DE RESERVA ----------
+  const bkForm = document.getElementById('booking');
+  if (bkForm) {
+    const inEl = document.getElementById('bk-in');
+    const outEl = document.getElementById('bk-out');
+    const adEl = document.getElementById('bk-ad');
+    const chEl = document.getElementById('bk-ch');
+    const pad = n => String(n).padStart(2, '0');
+    const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const addDays = (s, n) => { const d = new Date(s + 'T12:00:00'); d.setDate(d.getDate() + n); return d; };
+
+    const hoje = iso(new Date());
+    inEl.value = inEl.min = hoje;
+    outEl.min = iso(addDays(hoje, 1));
+    outEl.value = iso(addDays(hoje, 2));
+    inEl.addEventListener('change', () => {
+      if (!inEl.value) return;
+      outEl.min = iso(addDays(inEl.value, 1));
+      if (!outEl.value || outEl.value <= inEl.value) outEl.value = outEl.min;
+    });
+
+    // o campo inteiro abre o seletor nativo
+    document.querySelectorAll('.bk-field').forEach(f => {
+      const ctl = f.querySelector('input, select');
+      if (!ctl) return;
+      f.addEventListener('click', e => {
+        if (e.target === ctl) return;
+        try { ctl.showPicker ? ctl.showPicker() : ctl.focus(); } catch { ctl.focus(); }
+      });
+    });
+
+    const bkMsg = document.getElementById('bk-msg');
+    const flash = (el, msg) => {
+      const f = el.closest('.bk-field');
+      f.classList.add('error');
+      el.setAttribute('aria-invalid', 'true');
+      bkMsg.textContent = msg;
+      bkMsg.hidden = false;
+      el.addEventListener('change', function clear() {
+        f.classList.remove('error');
+        el.removeAttribute('aria-invalid');
+        bkMsg.hidden = true;
+        el.removeEventListener('change', clear);
+      });
+      el.focus();
+    };
+    bkForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!inEl.value) return flash(inEl, 'Informe a data de chegada.');
+      if (inEl.value < iso(new Date())) return flash(inEl, 'A chegada não pode ser no passado.');
+      if (!outEl.value || outEl.value <= inEl.value) return flash(outEl, 'A partida precisa ser depois da chegada.');
+      const fmt = v => v.split('-').reverse().join('/');
+      const ad = Number(adEl.value), ch = Number(chEl.value);
+      const msg = `Olá! Gostaria de checar disponibilidade no Bollté Praia Boutique Pousada.\n• Chegada: ${fmt(inEl.value)}\n• Partida: ${fmt(outEl.value)}\n• Hóspedes: ${ad} adulto${ad > 1 ? 's' : ''}${ch ? ` e ${ch} criança${ch > 1 ? 's' : ''}` : ''}`;
+      open(`https://wa.me/5548984327094?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    });
+  }
+
+  // ---------- CARROSSEL DE EXPERIÊNCIAS ----------
+  const track = document.querySelector('[data-carousel]');
+  if (track) {
+    const step = () => Math.min(track.clientWidth * .85, 380);
+    document.querySelector('[data-prev]')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
+    document.querySelector('[data-next]')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
+  }
+
+  // ---------- CONTADORES DO FINALE ----------
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const cio = new IntersectionObserver(es => {
+      es.forEach(en => {
+        if (!en.isIntersecting) return;
+        cio.unobserve(en.target);
+        const el = en.target, alvo = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10);
+        if (reduce) { el.textContent = alvo.toFixed(dec); return; }
+        const t0 = performance.now(), dur = 1600;
+        requestAnimationFrame(function tick(now) {
+          const p = Math.min((now - t0) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (alvo * eased).toFixed(dec);
+          if (p < 1) requestAnimationFrame(tick);
+        });
+      });
+    }, { threshold: .5 });
+    counters.forEach(c => cio.observe(c));
+  }
+
+  // ---------- PARALLAX ENGINE (loop contínuo de rAF + lerp) ----------
+  const heroBg = document.querySelector('[data-hero]');
+  const heroContent = document.querySelector('[data-hero-content]');
+  const pimgs = [...document.querySelectorAll('.pimg[data-px]')];
+  const pstate = new Map(); // img -> valores atuais (amortecidos)
+
+  function update() {
+    const y = scrollY, vh = innerHeight;
+    hd.classList.toggle('scrolled', y > vh * 0.66);
+    if (reduce) return;
+
+    // hero: fundo desce mais devagar (profundidade) + conteúdo desliza
+    if (heroBg) {
+      const t = clamp(y * 0.22, 0, vh * 0.16);
+      heroBg.style.transform = `translate3d(0, ${t}px, 0)`;
+    }
+    if (heroContent) {
+      heroContent.style.transform = `translate3d(0, ${-y * 0.12}px, 0)`;
+    }
+
+    // imagens: parallax "janela" — a foto pana dentro da moldura conforme ela cruza a viewport
+    for (const img of pimgs) {
+      const f = img.parentElement.getBoundingClientRect();
+      if (f.bottom < -150 || f.top > vh + 150) continue;        // fora de vista: pula
+      const n = clamp((f.top + f.height / 2 - vh / 2) / (vh / 2 + f.height / 2), -1, 1); // -1 topo .. +1 base
+      const tTy = n * f.height * parseFloat(img.dataset.px);    // alvo do pan
+      const tiltMax = Number.isFinite(parseFloat(img.dataset.tilt)) ? parseFloat(img.dataset.tilt) : 3;
+      const tRx = n * tiltMax - parseFloat(img.dataset.my || 0) * 5;
+      const tRy = parseFloat(img.dataset.mx || 0) * 5;
+      const s = pstate.get(img) || { ty: tTy, rx: 0, ry: 0 };
+      s.ty += (tTy - s.ty) * .14;                               // amortecimento (suavidade)
+      s.rx += (tRx - s.rx) * .14;
+      s.ry += (tRy - s.ry) * .14;
+      pstate.set(img, s);
+      img.style.transform = `translate3d(0, ${s.ty.toFixed(2)}px, 0) scale(1.06) rotateX(${s.rx.toFixed(2)}deg) rotateY(${s.ry.toFixed(2)}deg)`;
+    }
+  }
+  // ---------- CURSOR CIRCULAR ----------
+  const curEl = document.querySelector('.cursor');
+  const hoverOk = !matchMedia('(hover: none)').matches;
+  let cx = innerWidth / 2, cy = innerHeight / 2, ctx = cx, cty = cy;
+  if (curEl && hoverOk) {
+    addEventListener('mousemove', e => {
+      ctx = e.clientX; cty = e.clientY;
+      curEl.style.opacity = '1';
+      curEl.classList.toggle('on-link', !!(e.target.closest && e.target.closest('a, button, .bk-field, select, input, label')));
+    }, { passive: true });
+    document.documentElement.addEventListener('mouseleave', () => { curEl.style.opacity = '0'; });
+  }
+
+  function cursorTick() {
+    if (!curEl || !hoverOk) return;
+    const k = reduce ? 1 : .18;                 // sem suavização se reduced motion
+    cx += (ctx - cx) * k; cy += (cty - cy) * k;
+    curEl.style.transform = `translate3d(${cx.toFixed(1)}px, ${cy.toFixed(1)}px, 0)`;
+  }
+
+  (function loop() { update(); cursorTick(); requestAnimationFrame(loop); })();
+
+  // tilt 3D com o cursor: só alimenta os alvos; o loop de rAF aplica
+  if (!reduce && hoverOk) {
+    document.querySelectorAll('.pframe').forEach(fr => {
+      const img = fr.querySelector('.pimg');
+      if (!img || img.dataset.tilt === '0') return;
+      fr.addEventListener('mousemove', e => {
+        const r = fr.getBoundingClientRect();
+        img.dataset.mx = ((e.clientX - r.left) / r.width - .5).toFixed(3);
+        img.dataset.my = ((e.clientY - r.top) / r.height - .5).toFixed(3);
+      });
+      fr.addEventListener('mouseleave', () => { img.dataset.mx = img.dataset.my = '0'; });
+    });
+  }
+
+</script>
+</body>
+</html>
